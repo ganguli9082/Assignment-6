@@ -17,12 +17,8 @@ public class PaythePaidAdvisors {
 		PaidAdvisor staff1 = new PaidAdvisor("Albert", "Eisntein", THours, SHours);
 		
 		
-		staff1.computeRegHours();
-		staff1.computeOTHours();
-		staff1.calculateRegPay();
-		staff1.calculateSpecialPay();
-		staff1.calculateOTPay();
-		staff1.calculateTotalPay();
+		
+		staff1.calculatePay();
 		System.out.println(staff1.ToString());
 	}
 

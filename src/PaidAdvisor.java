@@ -108,8 +108,32 @@ public void setSpecialHours(double numSpecialHours)
 			OTPay = 0;
 		return OTPay;
 	}
-	public double calculateTotalPay()
+	public double calculatePay()
 	{
+		
+		RegHours = TotalHours - SpecialHours;
+		
+		if (RegHours>30)
+			OTHours = RegHours-30;
+		else
+			OTHours = 0;
+		
+		
+		if (RegHours>30)
+			{
+			RegPay = 30*RegPRate;
+			}
+		else
+			RegPay = RegHours *RegPRate;
+		
+		SpecialPay = SpecialPRate*SpecialHours;
+		
+		if (RegHours > 30)
+			OTPay = OTHours * OTPRate;
+		else
+			OTPay = 0;
+		
+		
 		TotalPay = OTPay + SpecialPay + RegPay;
 		return TotalPay;
 	}
@@ -119,8 +143,7 @@ public void setSpecialHours(double numSpecialHours)
 		
 		String PayReport;
 		
-		PayReport = firstName + " " + lastName + " " + "Paid: " + fmt.format(TotalPay) + "\n";
-		PayReport += "Regular Hours: " + RegHours + " OT: " + OTHours + " Special Hours: " + SpecialHours + "\n";
+		PayReport = firstName + " " + lastName + " " + "Total Wages: " + fmt.format(TotalPay) + "\n";
 		PayReport += "Regular Pay: " + fmt.format(RegPay) + " OT Pay: " + fmt.format(OTPay) + " Special Pay: " + fmt.format(SpecialPay);
 		return PayReport;
 	}
